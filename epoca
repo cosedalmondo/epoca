@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apri YouTube</title>
+
+<script>
+window.onload = function () {
+
+  var video = "https://youtu.be/ZRl6ZSGmmOg";
+
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  if (/android/i.test(ua)) {
+
+    window.location.href =
+      "intent://www.youtube.com/watch?v=ZRl6ZSGmmOg#Intent;scheme=https;package=com.google.android.youtube;end";
+
+    setTimeout(function () {
+      window.location.href = video;
+    }, 1200);
+
+  }
+
+  else if (/iPad|iPhone|iPod/.test(ua) && !window.MSStream) {
+
+    window.location.href =
+      "youtube://www.youtube.com/watch?v=ZRl6ZSGmmOg";
+
+    setTimeout(function () {
+      window.location.href = video;
+    }, 1200);
+
+  }
+
+  else {
+    window.location.href = video;
+  }
+};
+</script>
+
+</head>
+<body>
+Apertura YouTube...
+</body>
+</html>
